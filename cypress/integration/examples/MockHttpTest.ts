@@ -21,7 +21,10 @@ describe('My First Test Suite', function()
     
     cy.get("button[class='btn btn-primary']").click()
     cy.wait('@dummyUrl')
- 
+    })
+    it('Second test case', () => {
+        cy.visit('www.google.com');
+        cy.get('img[alt="Google"]').should('be.visible');
     })
  
 })
