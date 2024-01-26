@@ -2,10 +2,19 @@
  
 describe('My First Test Suite', function() 
 {
+    let testData: any
+    before(() => {
+        cy.fixture('example').then(function(val: any){
+
+            testData = val;
+
+        }) 
+    })
  
     it('My FirstTest case',function() {
     
         cy.visit("https://rahulshettyacademy.com/angularAppdemo/");
+        cy.log(">>>> testData" + JSON.stringify(testData.name));
     
         cy.intercept('GET','https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=shetty',
         (req)=>
